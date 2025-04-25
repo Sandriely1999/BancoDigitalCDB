@@ -1,5 +1,6 @@
 package org.cdb.bancodigitalcdb.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.UUID;
 
@@ -15,6 +16,7 @@ public abstract class ContaBancaria {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
+    @JsonBackReference
     private Cliente cliente;
 
     public void transferirPix(double valor, ContaBancaria destino) {

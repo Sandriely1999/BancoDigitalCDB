@@ -1,5 +1,6 @@
 package org.cdb.bancodigitalcdb.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ public abstract class Cartao {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
+    @JsonBackReference
     private Cliente cliente;
 
     @ManyToOne
@@ -26,7 +28,7 @@ public abstract class Cartao {
 
     public abstract boolean realizarPagamento(double valor);
 
-    // Getters e Setters
+
     public String getNumeroCartao() {
         return numeroCartao;
     }

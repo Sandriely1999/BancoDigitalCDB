@@ -1,5 +1,6 @@
 package org.cdb.bancodigitalcdb.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.cdb.bancodigitalcdb.model.enums.CategoriaCliente;
 
@@ -29,9 +30,11 @@ public class Cliente {
     private CategoriaCliente categoriaCliente;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<ContaBancaria> contas;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Cartao> cartoes;
 
     public int getId() { return id; }

@@ -38,7 +38,7 @@ public class CartaoService {
         } else {
             CartaoDebito cd = new CartaoDebito();
             cd.setNumeroCartao(numeroCartao);
-            cd.setLimiteDiario(1000.0); // Limite diário padrão
+            cd.setLimiteDiario(1000.0);
             cartao = cd;
         }
 

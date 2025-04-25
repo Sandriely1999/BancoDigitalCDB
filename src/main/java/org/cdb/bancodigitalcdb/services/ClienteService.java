@@ -17,12 +17,12 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     public Cliente criarCliente(Cliente cliente) {
-        // Valida CPF único
+
         if (clienteRepository.existsByCpf(cliente.getCpf())) {
             throw new RuntimeException("CPF já cadastrado!");
         }
 
-        // Valida idade (>= 18 anos)
+
         if (Period.between(cliente.getDataNascimento(), LocalDate.now()).getYears() < 18) {
             throw new RuntimeException("Cliente deve ser maior de idade!");
         }
